@@ -12,14 +12,17 @@ def hello():
 
 @app.route('/bar')
 def bar():
-    _bar = charts.bar.create_charts()
+    _bar = charts.bar.create_charts()#return page
+    print("我画了一张柱状图;)")
     return render_template('base.html',
                            title='柱状图',
                            source_file='bar',
                            myechart=_bar.render_embed(),
-                           script_list=_bar.get_js_dependencies())
+                           script_list=_bar.js_dependencies.items)
 
 
+
+'''
 @app.route('/bar3d')
 def bar3d():
     _bar3d = charts.bar3d.create_charts()
@@ -160,15 +163,6 @@ def map():
                            script_list=_map.get_js_dependencies())
 
 
-@app.route('/parallel')
-def parallel():
-    _parallel = charts.parallel.create_charts()
-    return render_template('base.html',
-                           title='平行坐标系',
-                           source_file='parallel',
-                           myechart=_parallel.render_embed(),
-                           script_list=_parallel.get_js_dependencies())
-
 
 @app.route('/pie')
 def pie():
@@ -180,14 +174,7 @@ def pie():
                            script_list=_pie.get_js_dependencies())
 
 
-@app.route('/polar')
-def polar():
-    _polar = charts.polar.create_charts()
-    return render_template('base.html',
-                           title='极坐标系',
-                           source_file='polar',
-                           myechart=_polar.render_embed(),
-                           script_list=_polar.get_js_dependencies())
+
 
 
 @app.route('/radar')
@@ -200,14 +187,6 @@ def radar():
                            script_list=_radar.get_js_dependencies())
 
 
-@app.route('/sankey')
-def sankey():
-    _sankey = charts.sankey.create_charts()
-    return render_template('base.html',
-                           title='桑基图',
-                           source_file='sankey',
-                           myechart=_sankey.render_embed(),
-                           script_list=_sankey.get_js_dependencies())
 
 
 @app.route('/scatter')
@@ -220,14 +199,6 @@ def scatter():
                            script_list=_scatter.get_js_dependencies())
 
 
-@app.route('/scatter3d')
-def scatter3d():
-    _scatter3d = charts.scatter3d.create_charts()
-    return render_template('base.html',
-                           title='3D散点图',
-                           source_file='scatter3d',
-                           myechart=_scatter3d.render_embed(),
-                           script_list=_scatter3d.get_js_dependencies())
 
 
 @app.route('/themeriver')
@@ -289,6 +260,7 @@ def timeline():
                            script_list=_timeline.get_js_dependencies())
 
 
+'''
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404

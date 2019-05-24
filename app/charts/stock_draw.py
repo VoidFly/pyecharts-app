@@ -6,7 +6,8 @@ import tushare as ts
 import pandas as pd
 import re
 
-#这个是股票行情的绘图函数 文件名bar.py是在其他地方有调用（还没改）
+
+
 
 def stock_draw(labels,mode_combo,startdate,enddate,optInterval,width1, height1):
     #optInterval='D/W/M' labels
@@ -138,7 +139,7 @@ def stock_draw(labels,mode_combo,startdate,enddate,optInterval,width1, height1):
 
                 page.add(line)
 
-    return page
+    page.render()
 
 
 def CalculateMA(date,DayCount):
@@ -152,31 +153,3 @@ def CalculateMA(date,DayCount):
 
     return result_list
 
-
-
-
-
-def create_charts():
-    labels=['上证指数-sh-Kline', '深证成指-sz-Kline']
-    mode_combo='KLine'
-    startdate='2019/04/24'
-    enddate='2019/05/24'
-    optInterval='D'
-    width1=0
-    length1=0
-
-    page = stock_draw(labels,mode_combo,startdate,enddate,optInterval,width1,length1)
-    '''
-    bar = (
-        Bar()
-            .add_xaxis(["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"])
-            .add_yaxis("商家A", [5, 20, 36, 10, 75, 90])
-            .set_global_opts(title_opts=opts.TitleOpts(title="主标题", subtitle="副标题"))
-        # 或者直接使用字典参数
-        # .set_global_opts(title_opts={"text": "主标题", "subtext": "副标题"})
-    )
-    page.add(bar)
-    '''
-
-
-    return page

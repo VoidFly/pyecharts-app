@@ -1,6 +1,7 @@
 
 # 基本图形
 from . import bar
+'''
 from . import bar3d
 from . import boxplot
 from . import effectscatter
@@ -31,3 +32,4 @@ from . import wordcloud
 from . import grid
 from . import overlap
 from . import timeline
+'''
