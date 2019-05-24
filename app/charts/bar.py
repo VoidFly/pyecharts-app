@@ -10,12 +10,12 @@ import re
 
 def stock_draw(labels,mode_combo,startdate,enddate,optInterval,width1, height1):
     #optInterval='D/W/M' labels
-    print(labels)
-    print(mode_combo)
+    print(labels)#需要绘制的信息列表
+    print(mode_combo)#默认为KLine 不要改
     print(startdate)
     print(enddate)
-    print(optInterval)
-    print(width1)
+    print(optInterval)#股票信息时间间隔  可选： D W M 5 15 30
+    print(width1)  #长宽高还没有加到下面函数里面去
     print(height1)
 
     startdate = startdate.replace("/", "-")  # 将参数日期转换为tushare的日期格式
@@ -157,6 +157,8 @@ def CalculateMA(date,DayCount):
 
 
 def create_charts():
+
+    #绘图参数
     labels=['上证指数-sh-Kline', '深证成指-sz-Kline']
     mode_combo='KLine'
     startdate='2019/04/24'
